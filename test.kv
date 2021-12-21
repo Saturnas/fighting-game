@@ -1,0 +1,394 @@
+ScreenManager:
+    MainScreen:
+    Level1:
+    Level2:
+
+<MainScreen>:
+    name: "main"
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "menu.png"
+        
+
+        Button:
+            
+            background_color: (0, 0, 0, 0)
+            on_press: app.root.current="level1"
+            on_press: app.screen_num(1)
+            on_press: app.reset(5)
+            
+        Button:
+            
+            background_color: (0, 0, 0, 0)
+            on_press: app.root.current="level2"
+            on_press: app.screen_num(2)
+            on_press: app.reset(5)
+            
+
+<Level1>:
+    name: "level1"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "bg1.jfif"
+        Button:
+            text: "Back"
+            size_hint: (0.13, 0.13)
+            pos_hint: {'x': 0.85}
+            on_press: app.root.current="main"
+        Judge:
+            id: judge
+        Character:
+            id: character_image
+
+        Image:
+            id: character_image2
+            size_hint: (0.35, 0.35)
+            pos_hint: {'x': 0.7, 'y': 0.16}
+            allow_stretch: True
+            source: "30.png"
+            im_num: 30
+            allow_stretch: True
+            on_im_num: app.change_char_im2()
+        
+        Character3:
+            id: character_image3
+        Character4:
+            id: character_image4
+        Character5:
+            id: character_image5
+        Character6:
+            id: character_image6
+
+
+        Label:
+            text: "Select to attack"
+            font_size:18
+            pos_hint: {'x': -0.39, 'y': 0.26}
+        GridLayout:
+            cols:4
+            size_hint:(0.13, 0.07)
+            pos_hint: {'x': 0.05, 'y': 0.67}
+            Label:
+                text: "Head"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Head")
+                
+            Label:
+                text: "Chest"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Chest")
+                
+            Label:
+                text: "Hips"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Hips")
+                
+            Label:
+                text: "Legs"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Legs")
+                
+        Label:
+            id: output_label
+            text: ""
+            font_size:15
+            pos_hint: {'x': -0.39, 'y': 0.14}
+
+        Label:
+            text: "Select to defend"
+            font_size:18
+            pos_hint: {'x': -0.39, 'y': 0.11}
+        GridLayout:
+            cols:4
+            size_hint:(0.13, 0.07)
+            pos_hint: {'x': 0.05, 'y': 0.52}
+            Label:
+                text: "Head"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Head")
+                
+            Label:
+                text: "Chest"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Chest")
+                
+            Label:
+                text: "Hips"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Hips")
+                
+            Label:
+                text: "Legs"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Legs")
+                
+        Label:
+            id: output_label2
+            text: ""
+            font_size:15
+            pos_hint: {'x': -0.39, 'y': 0.0001}
+
+        
+
+        Button:
+    
+            size_hint: (0.15, 0.15)
+            pos_hint: {'x': 0.42}
+            background_color: (0, 0, 0, 0)
+            on_press: app.start_char_animation()
+            on_press: app.start_char_animation2()
+            on_press: app.start_char_animation3()
+            on_press: app.start_char_animation4()
+            on_press: app.start_char_animation5()
+            on_press: app.start_char_animation6()
+            on_press: app.start_judge_animation()
+            on_press: app.random_choices()
+            Image:        
+                source: 'button.png'
+                y: self.parent.y + self.parent.height - 250
+                x: self.parent.x + self.parent.height - 100
+                size: 200, 410
+
+<Level2>:
+    name: "level2"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                source: "bg5.jpg"
+        Button:
+            text: "Back"
+            size_hint: (0.13, 0.13)
+            pos_hint: {'x': 0.85}
+            on_press: app.root.current="main"
+        Judge:
+            id: judge
+        Character:
+            id: character_image
+
+        Image:
+            id: character_image22
+            size_hint: (0.32, 0.32)
+            pos_hint: {'x': 0.65, 'y': 0.15}
+            allow_stretch: True
+            source: "601.png"
+            im_num: 601
+            allow_stretch: True
+            on_im_num: app.change_char_im22()
+        
+        Character3:
+            id: character_image3
+        Character4:
+            id: character_image4
+        Character5:
+            id: character_image5
+        Character6:
+            id: character_image6
+
+        Label:
+            text: "Select to attack"
+            font_size:18
+            pos_hint: {'x': -0.39, 'y': 0.26}
+        GridLayout:
+            cols:4
+            size_hint:(0.13, 0.07)
+            pos_hint: {'x': 0.05, 'y': 0.67}
+            Label:
+                text: "Head"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Head")
+                
+            Label:
+                text: "Chest"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Chest")
+                
+            Label:
+                text: "Hips"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Hips")
+                
+            Label:
+                text: "Legs"
+                font_size:15
+                
+            CheckBox:
+                group: "attack_choices"
+                on_active: app.checkbox_click(self, self.active, "Legs")
+                
+        Label:
+            id: output_label
+            text: ""
+            font_size:15
+            pos_hint: {'x': -0.39, 'y': 0.14}
+
+        Label:
+            text: "Select to defend"
+            font_size:18
+            pos_hint: {'x': -0.39, 'y': 0.11}
+        GridLayout:
+            cols:4
+            size_hint:(0.13, 0.07)
+            pos_hint: {'x': 0.05, 'y': 0.52}
+            Label:
+                text: "Head"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Head")
+                
+            Label:
+                text: "Chest"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Chest")
+                
+            Label:
+                text: "Hips"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Hips")
+                
+            Label:
+                text: "Legs"
+                font_size:15
+                
+            CheckBox:
+                group: "defend_choices"
+                on_active: app.checkbox_click2(self, self.active, "Legs")
+                
+        Label:
+            id: output_label2
+            text: ""
+            font_size:15
+            pos_hint: {'x': -0.39, 'y': 0.0001}
+
+        Button:
+    
+            size_hint: (0.15, 0.15)
+            pos_hint: {'x': 0.42}
+            background_color: (0, 0, 0, 0)
+            on_press: app.start_char_animation()
+            on_press: app.start_char_animation22()
+            on_press: app.start_char_animation3()
+            on_press: app.start_char_animation4()
+            on_press: app.start_char_animation5()
+            on_press: app.start_char_animation6()
+            on_press: app.start_judge_animation()
+            on_press: app.random_choices()
+            Image:
+                        
+                source: 'button.png'
+                y: self.parent.y + self.parent.height - 250
+                x: self.parent.x + self.parent.height - 100
+                size: 200, 410
+
+
+<Judge@Image>:
+    
+    size_hint: (0.4, 0.4)
+    pos_hint: {'x': 0.3, 'y': 0.2}
+    allow_stretch: True
+    source: "101.png"
+    im_num: 101
+    allow_stretch: True
+    on_im_num: app.change_judge_im()
+
+<Character@Image>:
+    
+    size_hint: (0.4, 0.4)
+    pos_hint: {'x': 0.05, 'y': 0.16}
+    allow_stretch: True
+    source: "61.png"
+    im_num: 61
+    allow_stretch: True
+    on_im_num: app.change_char_im()
+
+
+
+<Character3@Image>:
+    
+    size_hint: (0.6, 0.6)
+    pos_hint: {'x': 0.2, 'y': 0.08}
+    allow_stretch: True
+    source: "200.png"
+    im_num: 200
+    allow_stretch: True
+    on_im_num: app.change_char_im3()
+
+<Character4@Image>:
+    
+    size_hint: (0.6, 0.6)
+    pos_hint: {'x': 0.2, 'y': 0.35}
+    allow_stretch: True
+    source: "300.png"
+    im_num: 300
+    allow_stretch: True
+    on_im_num: app.change_char_im4()
+
+<Character5@Image>:
+    
+    size_hint: (0.4, 0.4)
+    pos_hint: {'x': 0.0, 'y': 0.7}
+    allow_stretch: True
+    source: "401.png"
+    im_num: 401
+    allow_stretch: True
+    on_im_num: app.change_char_im5()
+
+<Character6@Image>:
+    
+    size_hint: (0.4, 0.4)
+    pos_hint: {'x': 0.6, 'y': 0.7}
+    allow_stretch: True
+    source: "501.png"
+    im_num: 501
+    allow_stretch: True
+    on_im_num: app.change_char_im6()
+
+            
